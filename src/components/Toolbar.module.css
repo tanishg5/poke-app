@@ -1,0 +1,177 @@
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+}
+
+.label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 1);
+}
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid rgba(226, 232, 240, 1);
+  background: rgba(248, 250, 252, 1);
+  color: var(--pdx-text);
+  font: inherit;
+}
+
+.input:focus {
+  outline: 2px solid rgba(219, 255, 244, 1);
+}
+
+
+.typesSection {
+  text-align: left;
+}
+
+.typesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.linkButton {
+  border: none;
+  background: none;
+  padding: 0.25rem 0.35rem;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--pdx-accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.linkButton:hover {
+  color: var(--pdx-accent-hover);
+}
+
+.typeChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-height: 7.5rem;
+  overflow-y: auto;
+  padding: 0.15rem 0;
+}
+
+.chip {
+  border: 1px solid var(--pdx-border);
+  background: var(--pdx-surface-2);
+  color: var(--pdx-text);
+  border-radius: 999px;
+  padding: 0.28rem 0.65rem;
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--pdx-accent);
+}
+
+.chipActive {
+  background: var(--pdx-accent-bg);
+  border-color: var(--pdx-accent);
+  color: var(--pdx-text-strong);
+}
+
+.hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--pdx-muted);
+  line-height: 1.35;
+}
+
+@media (min-width: 720px) {
+  .typeChips {
+    max-height: none;
+    overflow: visible;
+    gap: 10px;
+  }
+
+  /* Unselected: outline pill. Selected: solid pill + X + label per Figma (desktop). */
+  .chip {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    min-height: 28px;
+    padding: 8px 10px;
+    border-radius: 15px;
+    border: 1px solid rgba(5, 150, 105, 1);
+    background: transparent;
+    color: rgba(5, 150, 105, 1);
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .chip:hover {
+    border-color: rgba(4, 120, 87, 1);
+    color: rgba(4, 120, 87, 1);
+  }
+
+  .chip:focus-visible {
+    outline: 2px solid rgba(5, 150, 105, 1);
+    outline-offset: 2px;
+  }
+
+  .chipText {
+    display: inline-block;
+  }
+
+  .chipIcon {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chipIconSvg {
+    display: block;
+  }
+
+  /* Selected: solid green, white Inter 12/400/1/1%, 12×12 X + 10px gap */
+  .chipActive {
+    gap: 10px;
+    background: rgba(5, 150, 105, 1);
+    border-color: rgba(5, 150, 105, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .chipActive:hover {
+    background: rgba(4, 120, 87, 1);
+    border-color: rgba(4, 120, 87, 1);
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .chipActive:focus-visible {
+    outline-color: rgba(4, 120, 87, 1);
+  }
+}

@@ -1,0 +1,223 @@
+.page {
+  min-height: 100svh;
+  background-color: rgba(248, 250, 252, 1);
+}
+
+.app {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.headerUser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.userAvatar {
+  border-radius: 999px;
+  border: 1px solid var(--pdx-border);
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--pdx-text-strong);
+  max-width: 20ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.signOutBtn {
+  border: 1px solid var(--pdx-border);
+  background: var(--pdx-surface);
+  color: var(--pdx-text);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.signOutBtn:hover {
+  border-color: var(--pdx-accent);
+}
+
+.signOutBtn:focus-visible {
+  outline: 2px solid var(--pdx-focus);
+  outline-offset: 2px;
+}
+
+.authBoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 50svh;
+  color: var(--pdx-muted);
+}
+
+.brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.logo {
+  font-size: 2rem;
+  line-height: 1;
+  filter: drop-shadow(0 2px 8px color-mix(in srgb, var(--pdx-accent) 45%, transparent));
+}
+
+.title {
+  margin: 0 0 0.35rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--pdx-text-strong);
+}
+
+.tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--pdx-muted);
+  max-width: 52ch;
+}
+
+.link {
+  color: var(--pdx-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+.link:hover {
+  color: var(--pdx-accent-hover);
+}
+
+.errorBanner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, #f87171 45%, var(--pdx-border));
+  background: color-mix(in srgb, #f87171 10%, var(--pdx-surface));
+  color: var(--pdx-text-strong);
+  margin-bottom: 1.25rem;
+}
+
+.dismiss {
+  border: 1px solid var(--pdx-border);
+  background: var(--pdx-surface);
+  color: var(--pdx-text);
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: 'Inter' !important;
+}
+
+.dismiss:hover {
+  border-color: var(--pdx-accent);
+}
+
+.main {
+  flex: 1;
+  margin-top: 0.5rem;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: clamp(0.75rem, 2vw, 1.1rem);
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+.gridItem {
+  margin: 0;
+}
+
+.gridLoading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 240px;
+  color: var(--pdx-muted);
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 3px solid color-mix(in srgb, var(--pdx-accent) 28%, var(--pdx-border));
+  border-top-color: var(--pdx-accent);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.empty {
+  margin: 2rem 0;
+  text-align: center;
+  color: var(--pdx-muted);
+  font-size: 0.95rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--pdx-border);
+  font-size: 0.8rem;
+  color: var(--pdx-muted);
+  line-height: 1.45;
+}
+
+.footer p {
+  margin: 0;
+}

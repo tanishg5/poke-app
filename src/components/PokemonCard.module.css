@@ -1,0 +1,160 @@
+.card {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--pdx-border);
+  background: linear-gradient(165deg, var(--pdx-surface) 0%, var(--pdx-surface-2) 100%);
+  box-shadow: var(--pdx-shadow-card);
+  overflow: hidden;
+  text-align: center;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--pdx-accent) 22%, var(--pdx-border));
+  box-shadow:
+    0 4px 8px rgba(15, 23, 42, 0.08),
+    0 14px 28px rgba(15, 23, 42, 0.14);
+}
+
+.mainHit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.85rem 0.65rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+}
+
+.mainHit:focus-visible {
+  outline: 2px solid var(--pdx-focus);
+  outline-offset: -2px;
+}
+
+.imageWrap {
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    circle at 50% 70%,
+    color-mix(in srgb, var(--pdx-accent) 12%, transparent) 0%,
+    transparent 65%
+  );
+  border-radius: 12px;
+}
+
+.image {
+  width: 88%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+.imageFallback {
+  width: 56%;
+  height: 56%;
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--pdx-muted) 22%, transparent);
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--pdx-text-strong);
+  line-height: 1.2;
+}
+
+.types {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.type {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 20px;
+  padding: 2px 11px 2px 9px;
+  border-radius: 9999px;
+  background: rgba(219, 255, 244, 1);
+  color: rgba(14, 124, 90, 1);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.fav {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border-radius: 3.5px;
+  border: 0.44px solid rgba(247, 169, 61, 0.15);
+  background: rgba(255, 216, 99, 0.05);
+  padding: 2px 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.favIcon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.fav:hover {
+  border-color: rgba(247, 169, 61, 0.28);
+  background: rgba(255, 216, 99, 0.08);
+}
+
+.favOn {
+  border-color: rgba(247, 169, 61, 0.28);
+  background: rgba(255, 216, 99, 0.12);
+}
+
+.fav:focus-visible {
+  outline: 2px solid var(--pdx-focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transition: none;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: var(--pdx-shadow-card);
+    border-color: var(--pdx-border);
+  }
+}

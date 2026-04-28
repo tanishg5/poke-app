@@ -1,0 +1,225 @@
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.range {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: rgba(71, 85, 105, 1);
+}
+
+.rangeTick,
+.pageMetaTick {
+  display: inline-block;
+  animation: paginationReveal 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes paginationReveal {
+  from {
+    opacity: 1.55;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  margin: 0;
+  border: 1px solid rgba(226, 232, 240, 1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 1);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: rgba(0, 0, 0, 1);
+  cursor: pointer;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    opacity 0.15s ease,
+    transform 0.12s ease;
+}
+
+.btnPrev {
+  width: 104px;
+  gap: 8px;
+  padding: 0 9px 0 13px;
+  justify-content: flex-start;
+}
+
+.btnNext {
+  width: 78px;
+  gap: 5px;
+  padding: 0 12px 0 13px;
+  justify-content: flex-end;
+}
+
+.chevron {
+  display: block;
+  flex-shrink: 0;
+  color: rgba(0, 0, 0, 1);
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btnPrev:hover:not(:disabled) .chevron {
+  transform: translateX(-2px);
+}
+
+.btnNext:hover:not(:disabled) .chevron {
+  transform: translateX(2px);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn:hover:not(:disabled) {
+  border-color: rgba(203, 213, 225, 1);
+  background: rgba(248, 250, 252, 1);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--pdx-focus);
+  outline-offset: 2px;
+}
+
+.pageMeta {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 96px;
+  height: 36px;
+  padding: 7px 10px 9px 12px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: rgba(71, 85, 105, 1);
+  white-space: nowrap;
+}
+
+/* Mobile — matches Figma pagination row (prev / page / next); desktop unchanged above 719px */
+@media (max-width: 719px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .range {
+   display: none;
+  }
+
+  .controls {
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .btn {
+    height: 29.49px;
+    border-radius: 4.91px;
+    background: rgba(248, 248, 248, 1);
+    font-size: 12px;
+    line-height: 16.38px;
+  }
+
+  .btn:hover:not(:disabled) {
+    background: rgba(240, 240, 240, 1);
+  }
+
+  .btnPrev {
+    width: 85.19px;
+    gap: 5.55px;
+    padding: 0 5.88px 0 10.65px;
+    justify-content: flex-start;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .btnNext {
+    width: 63.89px;
+    gap: 3.31px;
+    padding: 0 9.83px 0 10.65px;
+    justify-content: flex-end;
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .chevron {
+    width: 13.11px;
+    height: 13.11px;
+  }
+
+  .pageMeta {
+    min-width: 64px;
+    height: auto;
+    min-height: 29.49px;
+    padding: 5.73px 6.17px 6.27px 9.83px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16.38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rangeTick,
+  .pageMetaTick {
+    animation: none;
+  }
+
+  .chevron {
+    transition: none;
+  }
+
+  .btnPrev:hover:not(:disabled) .chevron,
+  .btnNext:hover:not(:disabled) .chevron {
+    transform: none;
+  }
+
+  .btn {
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  .btn:active:not(:disabled) {
+    transform: none;
+  }
+}
