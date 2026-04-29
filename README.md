@@ -49,7 +49,7 @@ Then open the URL shown in the terminal (Vite defaults to `http://localhost:5173
 
 ---
 
-## How the app fits together (concise)
+## About my app
 
 - **Routing**: Single-page shell — `LoginPage` when logged out; main grid + toolbar + pagination + modal when signed in (`App.jsx`).
 - **Auth**: Firebase `onAuthStateChanged` resolves before rendering main UI; a minimal boot spinner shows until auth state is known.
