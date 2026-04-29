@@ -1,6 +1,6 @@
 # Pokédex Lite
 
-A responsive Pokédex web app built with **React** and **Vite**. It loads Pokémon data from the public **[PokéAPI](https://pokeapi.co/)** (v2). After **Google sign-in** (Firebase Authentication), you can browse and paginate results, search by name, filter by one or more types with OR semantics, persist favorites in the browser (`localStorage`), and open a detail modal with stats and abilities.
+A responsive Pokédex web app built with **React** and **Vite**. It loads Pokémon data from the public **[PokéAPI](https://pokeapi.co/)**. After **Google sign-in** (Firebase Authentication), you can browse and paginate results, search by name, filter by one or more types with OR semantics, persist favorites in the browser (`localStorage`), and open a detail modal with stats and abilities.
 
 ---
 
@@ -43,9 +43,7 @@ Then open the URL shown in the terminal (Vite defaults to `http://localhost:5173
 | **React 19** | UI composition, concurrent-friendly patterns, hooks for state/effects (`useSyncExternalStore` for favorites, async effects guarded against stale updates). |
 | **Vite** | Fast dev server with HMR, optimized production bundles, native ESM, simple config (`@vitejs/plugin-react` for JSX/Refresh). |
 | **Firebase (JS SDK)** | **Authentication** via Google (`signInWithPopup`, `GoogleAuthProvider`) — gate access to the app; **Analytics** optionally initialized behind `try/catch` when the runtime supports it. |
-| **`fetch`** (built-in) | All PokéAPI calls (`src/lib/pokeapi.js`) — no extra HTTP library; aligns with browser APIs only. |
 | **CSS Modules** (`*.module.css`) | Scoped styling per component (e.g. `App.module.css`, `LoginPage.module.css`) — avoids global class collisions without a CSS-in-JS runtime. |
-| **ESLint** (flat config) | `eslint-plugin-react-hooks` / `eslint-plugin-react-refresh` — hook rules and Vite-compatible Fast Refresh checks. |
 
 **Data source**: PokéAPI is a free REST API maintained by contributors; this project is **not** affiliated with Nintendo or The Pokémon Company.
 
@@ -73,24 +71,11 @@ These map to patterns visible in the codebase (not aspirational claims):
 
 3. **Multi-type filtering** — Types are loaded per selected type URL; payloads are normalized to unique Pokémon refs (`pokemonRefsFromTypePayload`). Multiple selections are merged in **OR** fashion via `mergeTypeRefs`, with an in-session **cache** keyed by type name.
 
-4. **Favorites vs. React concurrent features** — A module-level cache plus **`useSyncExternalStore`** aligns `localStorage` with React 18+/19 semantics (external store subscriptions) rather than relying on ad hoc `storage` listeners for every interaction.
-
-5. **Firebase Analytics** — `getAnalytics` is wrapped in **`try/catch`** so environments where analytics is unavailable do not break app initialization.
-
-6. **Robust layout** — Transform helpers (`pokeTransform.js`) defensively read nested PokéAPI JSON (sprites, types, stats) so minor shape differences degrade to empty fields or safe fallbacks instead of throwing in the render path.
-
 ---
 
 ## Forking & Firebase
 
 The Firebase web client configuration lives in **`src/firebase/firebase.js`**. Client API keys are not secret server credentials, but if you fork the project you will typically replace this block with configuration from **your own** Firebase project in the Firebase console so Google sign-in and domains match your deployment.
-
----
-
-## License / attribution
-
-- Pokémon-related media and names are trademarks of their respective owners; data is credited to **PokéAPI**.
-- Demo application code is maintained for learning/portfolio purposes.
 
 ---
 
