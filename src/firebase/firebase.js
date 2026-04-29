@@ -19,7 +19,7 @@ let analytics
 try {
   analytics = getAnalytics(app)
 } catch {
-  // e.g. unsupported environment
+  
 }
 
 export { analytics }
